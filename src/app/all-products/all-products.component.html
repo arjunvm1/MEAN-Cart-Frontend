@@ -1,0 +1,59 @@
+<app-header></app-header>
+<header class=" py-5">
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://sslimages.shoppersstop.com/sys-master/root/h10/h46/32168395276318/Denims-web_752003jlq.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://sslimages.shoppersstop.com/sys-master/root/hd5/hef/32242164957214/Biba-web--main-carousel--womens-page-2024-03--13-new.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://sslimages.shoppersstop.com/sys-master/root/h01/h40/32168395407390/Jewellery-web_01730292skj.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <div *ngFor="let product of allproducts" class="col mb-5">
+              <div class="card h-100">
+                  <!-- Product image-->
+                  <img height="200px" width="200px" routerLink="/view/{{product.id}}" class="card-img-top" [src]="product.image" [alt]="product.title" />
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                      <div class="text-center">
+                          <!-- Product name-->
+                          <h5 class="fw-bolder"> {{product.title.slice(0,20)}} </h5>
+                          <!-- Product price-->
+                          ${{product.price}}
+                      </div>
+                  </div>
+                  <!-- Product actions-->
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="d-flex justify-content-between">
+                      <button (click)="addToWishlist(product)" class="btn"> <i class="fa-solid fa-heart text-danger"></i> </button>
+                      <button (click)="addToCart(product)" class="btn"> <i class="fa-solid fa-cart-shopping text-success"></i> </button>
+                    </div>
+                  </div>
+              </div>
+          </div>
+         
+      </div>
+  </div>
+</section>

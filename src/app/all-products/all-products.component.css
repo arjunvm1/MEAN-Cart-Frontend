@@ -1,0 +1,9 @@
+img{
+  transition: ease-in-out;
+  cursor: pointer;
+}
+.card:hover img {
+  scale: 1.05;
+  transition: ease-in;
+  cursor: pointer;
+}
